@@ -2,7 +2,7 @@
 
 ## Objective
 
-To separate Students, Teachers and Management into different VLANs while allowing communication within the same VLAN across multiple switches.
+To create separate broadcast domains for different departments while maintaining communication between users belonging to the same department across multiple switches.
 
 ## Topology
 
