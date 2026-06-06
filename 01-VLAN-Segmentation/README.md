@@ -1,25 +1,46 @@
-# VLAN Segmentation Using Cisco Packet Tracer
+# Project 01: VLAN Segmentation Across Multiple Switches
+
 
 ## Objective
 
-To create separate broadcast domains for different departments while maintaining communication between users belonging to the same department across multiple switches.
+To create separate broadcast domains for Students, Teachers, and Management and verify communication within the same VLAN across multiple switches.
 
 ## Topology
 
-Switch0
-Switch1
-Switch2
+* Switch0
+* Switch1
+* Switch2
 
-VLAN 100 - Students
-VLAN 200 - Teachers
-VLAN 300 - Management
+VLAN Assignment:
 
-## Configuration
+* VLAN 100: Students
+* VLAN 200: Teachers
+* VLAN 300: Management
+
+## IP Addressing
+
+Students:
+
+* 192.168.10.2
+* 192.168.10.3
+* 192.168.10.4
+
+Teachers:
+
+* 192.168.20.2
+* 192.168.20.3
+* 192.168.20.4
+
+Management:
+
+* 192.168.30.2
+* 192.168.30.3
+* 192.168.30.4
+
+## Key Configuration
 
 ### Create VLANs
 
-enable
-conf t
 
 vlan 100
 name STUDENTS
@@ -30,25 +51,84 @@ name TEACHERS
 vlan 300
 name MANAGEMENT
 
-vlan 99
-name Native
-### Configure Trunks
+
+### Assign Access Ports
+
+
+
+
+
+
+
+interface fa0/1
+
+switchport mode access
+
+switchport access vlan 100
+
+
+
+
+
+
+
+interface fa0/2
+
+switchport mode access
+
+switchport access vlan 200
+
+
+
+
+
+
+
+interface fa0/3
+
+switchport mode access
+
+switchport access vlan 300
+
+
+
+### Configure Trunk Links
+
+
 
 interface g0/1
+
 switchport mode trunk
 
-## Verification
+
+interface g0/2
+
+switchport mode trunk
+
+
+## Verification Commands
+
 
 show vlan brief
 
 show interfaces trunk
 
+show mac address-table
+
 ## Results
+* Students communicated successfully across all switches.
+* Teachers communicated successfully across all switches.
+* Management communicated successfully across all switches.
+* Communication between different VLANs was blocked.
 
-Students communicated successfully across all switches.
+## Skills Demonstrated
 
-Teachers communicated successfully across all switches.
+* VLAN Configuration
+* Access Port Assignment
+* Trunk Configuration
+* Layer 2 Switching
+* Network Troubleshooting
 
-Management communicated successfully across all switches.
+## Lessons Learned
 
-Inter-VLAN communication was blocked as expected.
+This project demonstrated how VLANs reduce broadcast traffic and logically separate departments while allowing devices within the same VLAN to communicate across multiple switches.
