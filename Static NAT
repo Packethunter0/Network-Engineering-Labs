@@ -1,0 +1,117 @@
+# Project 07: Static NAT Configuration for Public Web Server Access
+
+
+## Objective
+
+To configure Static NAT and allow an external device to access an internal web server using a public IP address.
+
+## Network Design
+
+Internal Network:
+
+* 192.168.20.0/24
+
+Router LAN Interface:
+
+* 192.168.20.1
+
+Router WAN Interface:
+
+* 209.165.200.230
+
+Web Server:
+
+* 192.168.20.100
+
+External Device:
+
+* 209.165.200.10
+
+External Device Gateway:
+
+* 209.165.200.226
+
+## Topology
+
+
+Web Server
+192.168.20.100
+       |
+       |
+Router
+G0/0: 192.168.20.1
+G0/1: 209.165.200.230
+       |
+       |
+External Device
+209.165.200.10
+
+
+## Key Configuration
+
+### Configure Router Interfaces
+
+interface g0/0
+
+ip address 192.168.20.1 255.255.255.0
+
+ip nat inside
+
+no shutdown
+
+interface g0/1
+
+ip address 209.165.200.230 255.255.255.224
+
+ip nat outside
+
+no shutdown
+
+
+### Configure Static NAT
+
+
+ip nat inside source static 192.168.20.100 209.165.200.230
+
+
+## Verification Commands
+
+
+show ip nat translations
+
+
+show ip nat statistics
+
+
+show running-config
+
+
+## Testing
+
+From the external device:
+
+
+ping 209.165.200.230
+
+
+
+
+## Results
+
+* The private web server was successfully mapped to a public IP address.
+* External users were able to access the internal web server.
+* NAT translation entries were successfully created and verified.
+* End-to-end connectivity was confirmed through testing.
+
+## Skills Demonstrated
+
+* Static NAT Configuration
+* Cisco Router Administration
+* Public and Private IP Address Translation
+* Web Server Publishing
+* Network Connectivity Testing
+* Troubleshooting NAT Issues
+
+## Lessons Learned
+
+This project demonstrated how Static NAT creates a permanent mapping between a private IP address and a public IP address. It provided practical experience in publishing internal services to external users while maintaining private addressing within the local network.
