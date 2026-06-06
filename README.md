@@ -1,2 +1,2 @@
 # Network-Engineering-Labs
-Hands-on Cisco Packet Tracer labs covering VLANs, Routing, NAT, DHCP, ACLs, DMZ, Wireless Networking and Network Troubleshooting.
+This repository documents my journey in network engineering through practical Cisco Packet Tracer labs. Projects cover Layer 2 and Layer 3 networking concepts including VLAN segmentation, 802.1Q trunking, Router-on-a-Stick, static routing, DHCP services, NAT/PAT, access control lists (ACLs), DMZ deployment, wireless network configuration, and network troubleshooting. Each lab is structured with objectives, topology diagrams, configurations, testing procedures, and lessons learned to demonstrate hands-on networking proficiency.
