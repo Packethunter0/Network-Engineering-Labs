@@ -52,7 +52,7 @@ vlan 300
 name MANAGEMENT
 
 
-### Assign Access Ports
+## Assign Access Ports
 
 
 
@@ -92,7 +92,7 @@ switchport access vlan 300
 
 
 
-### Configure Trunk Links
+## Configure Trunk Links
 
 
 
